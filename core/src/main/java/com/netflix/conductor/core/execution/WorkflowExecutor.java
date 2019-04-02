@@ -618,6 +618,7 @@ public class WorkflowExecutor {
 
         if (!StringUtils.isBlank(failureWorkflow)) {
             Map<String, Object> input = new HashMap<>(workflow.getInput());
+            input.putAll(workflow.getOutput());
             input.put("workflowId", workflowId);
             input.put("reason", reason);
             input.put("failureStatus", workflow.getStatus().toString());
